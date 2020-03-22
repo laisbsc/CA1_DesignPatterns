@@ -7,7 +7,7 @@ import java.sql.Statement;
 
 public class DataSource {
 	
-	private String db = "jdbc:mysql://apontejaj.com:3306/customer";
+	private String db = "jdbc:mysql://apontejaj.com:3306/world";
 	private String un = "cctstudent";
 	private String pw = "Pass1234!";
 	
@@ -22,11 +22,11 @@ public class DataSource {
 			Statement stmt = conn.createStatement() ;
 
 			// Execute the query
-			ResultSet rs = stmt.executeQuery( "SELECT * FROM customer" ) ;
+			ResultSet rs = stmt.executeQuery( "SELECT * FROM country" ) ;
 
 			// Loop through the result set
 			while( rs.next() )
-				System.out.println( rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4)) ;
+				System.out.println( rs.getString(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5));
 
 			// Close the result set, statement and the connection
 			rs.close() ;
