@@ -11,4 +11,4 @@ It is required to create a CLI client program to test the implementation of the 
 
 ### Submission
 - .zip file with a .txt with the link to this repo.
-- README.md with the explanation of the design patterns chosen on the application design.
+- README.md with the explanation of the design patterns chosen on the application design and a basic manual of how to interact with the CLI.
