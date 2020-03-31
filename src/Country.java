@@ -52,9 +52,11 @@ public class Country {
 	/**
 	 * gets the continent value from EnumTest Class
 	 */
-	public void setContinent(Continent continent) {
-		this.continent = continent;
-	}
+    public void setContinent(){
+        for (Continent continent : Continent.values()){
+            System.out.println(continent);
+        }
+    }
 
 	public long getSurfaceArea() {
 		return surfaceArea;

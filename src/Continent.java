@@ -1,9 +1,10 @@
-public enum Continent{
+enum Continent{
     ASIA,
     EUROPE,
     NORTH_AMERICA,
     AFRICA,
     OCEANIA,
     ANTARTICA,
-    SOUTH_AMERICA
+    SOUTH_AMERICA;
+
 }
