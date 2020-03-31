@@ -43,6 +43,7 @@ public class MySqlCountryDAO implements CountryDAO {
                 surfaceArea = rs.getLong(4);
                 headOfState = rs.getString(5);
 
+                //builder pattern here > sinlge class not subclass that has multiple attributes
                 c = new Country(code, name, continent, surfaceArea, headOfState); //new instance of Country class
                 countries.add(c);
             }

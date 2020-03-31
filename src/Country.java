@@ -14,7 +14,6 @@ public class Country {
 		this.continent = continent;
 		this.surfaceArea = surfaceArea;
 		this.headOfState = headOfState;
-		//this.status = status; //will be an enum >> for what? 
 	}
 
 	public Country(String name, Continent continent, long surfaceArea, String headOfState) {
@@ -22,7 +21,6 @@ public class Country {
 		this.continent = continent;
 		this.surfaceArea = surfaceArea;
 		this.headOfState = headOfState;
-		//this.status = status; //will be an enum >> for what? 
 	}
 	
 	public int getCode() {
