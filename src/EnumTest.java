@@ -2,6 +2,11 @@
 public class EnumTest{
     Continent continent;   
 
+    /**
+     * I think there's something wrong here on this constructor
+     * Shall I skip this and work on setting the Continent only on Country Class?
+     * @param continent
+     */
 public EnumTest(Continent continent){
     this.continent = continent;
 

@@ -51,10 +51,9 @@ public class Country {
 
 	/**
 	 * gets the continent value from EnumTest Class
-	 * @return continent
 	 */
-	public Continent EnumTest(Continent continent) {
-		return continent;
+	public void setContinent(Continent continent) {
+		this.continent = continent;
 	}
 
 	public long getSurfaceArea() {
