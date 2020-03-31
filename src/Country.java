@@ -3,13 +3,12 @@ public class Country {
 	
 	private int code;
 	private String name;
-	private String continent;  //has to be an enum w the the types especified
+	private Continent continent; // has to be an enum w the the types especified
 		//https://meet.google.com/linkredirect?authuser=0&dest=https%3A%2F%2Fwww.w3schools.com%2Fjava%2Fjava_enums.asp
 	private long surfaceArea;
 	private String headOfState;
-//	private Status status;
 	
-	public Country(int code, String name, String continent, long surfaceArea, String headOfState) {
+	public Country(int code, String name, Continent continent, long surfaceArea, String headOfState) {
 		this.code = code;
 		this.name = name;
 		this.continent = continent;
@@ -18,7 +17,7 @@ public class Country {
 		//this.status = status; //will be an enum >> for what? 
 	}
 
-	public Country(String name, String continent, long surfaceArea, String headOfState) {
+	public Country(String name, Continent continent, long surfaceArea, String headOfState) {
 		this.name = name;
 		this.continent = continent;
 		this.surfaceArea = surfaceArea;
@@ -42,12 +41,20 @@ public class Country {
 		this.name = name;
 	}
 
-	public String getContinent() {
+	/**
+	 * gets the Continent from EnumTest Class
+	 * @return
+	 */
+	public Continent getContinent() {
 		return continent;
 	}
 
-	public void setcontinent(String continent) {
-		this.continent = continent;
+	/**
+	 * gets the continent value from EnumTest Class
+	 * @return continent
+	 */
+	public Continent EnumTest(Continent continent) {
+		return continent;
 	}
 
 	public long getSurfaceArea() {

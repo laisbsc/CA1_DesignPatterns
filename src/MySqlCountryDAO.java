@@ -30,16 +30,16 @@ public class MySqlCountryDAO implements CountryDAO {
         // loop over the resultSet to fill ArrayList w results
         int code = 0;
 	    String name = "";
-	    String continent = "";
+	    Continent continent = null;
 	    long surfaceArea = 0;
         String headOfState = "";
         Country c = null; 
         
         try {
             while (rs.next()) {
-                code = rs.getInt(1); //flag here cuz the int must be 1 - column(0) is unique ID
+                code = rs.getInt(1); //don't quite get it why starts at 1
                 name = rs.getString(2);
-                continent = rs.getString(3);
+                continent = (Continent) rs.getObject(3);
                 surfaceArea = rs.getLong(4);
                 headOfState = rs.getString(5);
 
@@ -55,12 +55,12 @@ public class MySqlCountryDAO implements CountryDAO {
 	@Override
 	public Country findCountryByCode(int code) {
 
-        String query = "SELECT * FROM world WHERE code = "+ code +";"; // MySQL query
+        String query = "SELECT * FROM country WHERE code = "+ code +";"; // MySQL query
         ResultSet rs = db.select(query); // catch the ResultSet and place the result of the query there - not sure how this works
 
         // loop over the resultSet to fill ArrayList w results
 	    String name = "";
-	    String continent = "";
+	    Continent continent = null;
 	    long surfaceArea = 0;
         String headOfState = "";
         Country c = null; 
@@ -68,7 +68,7 @@ public class MySqlCountryDAO implements CountryDAO {
         try {
             if (rs.next()) { //if the result set has some data in it, populate the other parameters
                 name = rs.getString(2);
-                continent = rs.getString(3);
+                continent = (Continent) rs.getObject(3);
                 surfaceArea = rs.getLong(4);
                 headOfState = rs.getString(5);
 
@@ -88,11 +88,11 @@ public class MySqlCountryDAO implements CountryDAO {
 	public Country findCountryByname(String name) {
 
         ArrayList<Country> countriesByName = new ArrayList<Country>(); // arrayList is still empty here
-		String query = "SELECT * FROM world WHERE name = "+ name +";"; // MySQL query selecting rows w name typed
+		String query = "SELECT * FROM country WHERE name = "+ name +";"; // MySQL query selecting rows w name typed
         ResultSet rs = db.select(query); // catch the ResultSet and place the result of the query there - not sure how this works
 
         // loop over the resultSet to fill ArrayList w results
-	    String continent = "";
+	    Continent continent = null;
 	    long surfaceArea = 0;
         String headOfState = "";
         Country c = null; 
@@ -100,7 +100,7 @@ public class MySqlCountryDAO implements CountryDAO {
         try {
             if (rs.next()) { //if there is a next number, populate the other parameters
                 name = rs.getString(2);
-                continent = rs.getString(3);
+                continent = (Continent) rs.getObject(3);
                 surfaceArea = rs.getLong(4);
                 headOfState = rs.getString(5);
 
@@ -118,7 +118,7 @@ public class MySqlCountryDAO implements CountryDAO {
 	@Override
 	public boolean saveCountry(Country countries) {
 		String name = countries.getName();
-	    String continent = countries.getContinent();
+	    Continent continent = countries.getContinent();
 	    long surfaceArea = countries.getSurfaceArea();
         String headOfState = countries.getHeadOfState();
 
