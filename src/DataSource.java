@@ -8,7 +8,6 @@ import java.sql.Statement;
  * The code on this class was adapted from the source code uploaded
  * by Amilcar Pontes on Moodle under Week 5.
  * Class responsible for handling the requests and responses from the DB.
- * 
  */
 public class DataSource {
 	
@@ -30,12 +29,19 @@ public class DataSource {
 			conn = DriverManager.getConnection( db, un, pw ) ;
 
 			// Generate a statement from the connection
-			stmt = conn.createStatement() ;
+			stmt = conn.createStatement();
+
+			// Loop through the result set printing the columns of the table
+			while (rs.next() ){
+				System.out.println( rs.getString(1) + "\t" + rs.getString(2) +
+				"\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5));
+			}
+
 		} catch( SQLException se ){
 			System.out.println( "SQL Exception:" ) ;
 
 			// Loop through the SQL Exceptions
-			while( se != null ){
+			while( rs != null ){
 				System.out.println( "State  : " + se.getSQLState()  ) ;
 				System.out.println( "Message: " + se.getMessage()   ) ;
 				System.out.println( "Error  : " + se.getErrorCode() ) ;
@@ -77,6 +83,7 @@ public class DataSource {
 		}
 		return rs;
 	}
+
 	/**
 	 * Closes the connection, the statement and the result set when the query is finished.
 	 */
@@ -89,13 +96,6 @@ public class DataSource {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
-
+	
 }
-
-
-// Loop through the result set printing the columns of the table
-while( rs.next() )
-System.out.println( rs.getString(1) + "\t" + rs.getString(2) +
-	"\t" + rs.getString(3) + "\t" + rs.getString(4) + "\t" + rs.getString(5));

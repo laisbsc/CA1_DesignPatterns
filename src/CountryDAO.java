@@ -12,7 +12,7 @@ public interface CountryDAO {
 
 	public ArrayList<Country> getCountries(); //connection between client & DB
 	public Country findCountryByCode(int code);
-	public Country findCountryByname(String name);
+	public Country findCountryByname(String name); //search method > inclusive. should return an arrayList of countries
 	public boolean saveCountry(Country customer);
 	
 }
