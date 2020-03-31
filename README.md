@@ -6,8 +6,8 @@ The app should output all records from a given database, retrieve records by nam
 
 The app should be implemented using Data Access Object Pattern, used on to access the DataSource class. In addition, to 2 other creational patters should be used on this application.
 
-I chose to utilise the Thread Safe Singleton Pattern implementation on the connection from the application to the database. The goal is to  mantained that connection singly instantiated, even on a multithreaded environment. To accomplish such, the getInstance() method was made synchronized so that multiple threads cannot access the instance concurrently.
-The second creational design pattern chosen to build this application was the Builder Pattern. This helped on the modularity of the program design, such as [exempligy why and where].
+I chose to utilise the Thread Safe Singleton Pattern implementation on the connection from the application to the database. The goal is to  mantained that connection singly instantiated, even on a multithreaded environment. To accomplish such, the getInstance() method was made synchronized so that multiple threads cannot access the same (unique) instance concurrently.
+The second creational design pattern chosen to build this application was the Builder Pattern. This helped with the modularity of the program design, such as [exemplify why and where].
 
 ### TO-DO ###
  > ENUM implementation of the continents (have a look at db schema);
