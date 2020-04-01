@@ -17,7 +17,7 @@ public class DataSource {
 
 	private Connection conn;
 	private Statement stmt;
-	private ResultSet rs = null;
+	private ResultSet rs;
 
 	/**
 	 * this class should have at least two methods, one to retrieve data from the DB

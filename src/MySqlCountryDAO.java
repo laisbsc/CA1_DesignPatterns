@@ -14,9 +14,10 @@ public class MySqlCountryDAO implements CountryDAO {
 
         ArrayList<Country> countries = new ArrayList<Country>();
         String query = "SELECT * FROM country"; // MySQL query
+        DataSource db = SingletonInstance.getInstance();
         ResultSet rs = db.select(query); // catch the ResultSet and place the result of the query there - not sure how
                                          // this works
-        int code = 0;
+        String code = "";
         String name = "";
         Continent continent = null;
         long surfaceArea = 0;
@@ -26,7 +27,7 @@ public class MySqlCountryDAO implements CountryDAO {
         // loop over the resultSet to fill ArrayList w results
         try {
             while (rs.next()) {
-                code = rs.getInt(1); // don't quite get it why starts at 1
+                code = rs.getString(1); // don't quite get it why starts at 1
                 name = rs.getString(2);
                 continent = Continent.valueOf(rs.getString(3));
                 surfaceArea = rs.getLong(4);
@@ -43,7 +44,7 @@ public class MySqlCountryDAO implements CountryDAO {
 	}
 
 	@Override
-	public Country findCountryByCode(int code) {
+	public Country findCountryByCode(String code) {
 
         String query = "SELECT * FROM country WHERE code = "+ code +";"; // MySQL query
         ResultSet rs = db.select(query); // catch the ResultSet and place the result of the query there - not sure how this works

@@ -1,13 +1,13 @@
 
 public class Country {
 	
-	private int code;
+	private String code;
 	private String name;
 	private Continent continent; // has to be an enum w the the types especified
 	private long surfaceArea;
 	private String headOfState;
 	
-	public Country(int code, String name, Continent continent, long surfaceArea, String headOfState) {
+	public Country(String code, String name, Continent continent, long surfaceArea, String headOfState) {
 		this.code = code;
 		this.name = name;
 		this.continent = continent;
@@ -22,11 +22,11 @@ public class Country {
 		this.headOfState = headOfState;
 	}
 	
-	public int getCode() {
+	public String getCode() {
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(String code) {
 		this.code = code;
 	}
 	
