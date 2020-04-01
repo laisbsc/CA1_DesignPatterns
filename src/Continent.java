@@ -1,4 +1,4 @@
-enum Continent{
+public enum Continent{
     ASIA,
     EUROPE,
     NORTH_AMERICA,

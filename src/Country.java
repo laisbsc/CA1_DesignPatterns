@@ -4,7 +4,6 @@ public class Country {
 	private int code;
 	private String name;
 	private Continent continent; // has to be an enum w the the types especified
-		//https://meet.google.com/linkredirect?authuser=0&dest=https%3A%2F%2Fwww.w3schools.com%2Fjava%2Fjava_enums.asp
 	private long surfaceArea;
 	private String headOfState;
 	

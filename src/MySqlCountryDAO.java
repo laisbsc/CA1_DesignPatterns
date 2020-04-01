@@ -3,43 +3,32 @@ import java.sql.*;
 
 public class MySqlCountryDAO implements CountryDAO {
 
-    private static DataSource db;
-
-    /**
-     * Thread safe singleton implementation to instantiate the connection from this class to teh MySQL database
-     * @return databaseInstance
-     */
-    public static synchronized DataSource getInstance(){
-        if(db == null){
-            db = new DataSource(); // stablishing connection to the db
-        }
-        return db;
-    }
+    DataSource db = SingletonInstance.getInstance();
 
     /**
      * Returns an ArrayList of all the Countries in the database
-     * @returns arrayList of country Objects 
+     * @returns arrayList of country Objects
      */
     @Override
     public ArrayList<Country> getCountries() {
 
-        ArrayList<Country> countries = new ArrayList<Country>(); // arrayList is still empty here
-        String query = "SELECT * FROM world"; // MySQL query
-        ResultSet rs = db.select(query); // catch the ResultSet and place the result of the query there - not sure how this works
+        ArrayList<Country> countries = new ArrayList<Country>();
+        String query = "SELECT * FROM country"; // MySQL query
+        ResultSet rs = db.select(query); // catch the ResultSet and place the result of the query there - not sure how
+                                         // this works
+        int code = 0;
+        String name = "";
+        Continent continent = null;
+        long surfaceArea = 0;
+        String headOfState = "";
+        Country c = null;
 
         // loop over the resultSet to fill ArrayList w results
-        int code = 0;
-	    String name = "";
-	    Continent continent = null;
-	    long surfaceArea = 0;
-        String headOfState = "";
-        Country c = null; 
-        
         try {
             while (rs.next()) {
-                code = rs.getInt(1); //don't quite get it why starts at 1
+                code = rs.getInt(1); // don't quite get it why starts at 1
                 name = rs.getString(2);
-                continent = (Continent) rs.getObject(3);
+                continent = Continent.valueOf(rs.getString(3));
                 surfaceArea = rs.getLong(4);
                 headOfState = rs.getString(5);
 
@@ -68,8 +57,8 @@ public class MySqlCountryDAO implements CountryDAO {
         
         try {
             if (rs.next()) { //if the result set has some data in it, populate the other parameters
-                name = rs.getString(2);
-                continent = (Continent) rs.getObject(3);
+                name = rs.getString(1);
+                continent = Continent.valueOf(rs.getString(3));
                 surfaceArea = rs.getLong(4);
                 headOfState = rs.getString(5);
 
@@ -83,7 +72,8 @@ public class MySqlCountryDAO implements CountryDAO {
     }
     
     /**
-     * Method that selects all rows with 
+     * Method that selects all rows with the string searched in its name
+     * not fully implemented > should return an arrayList of countries 
      */
 	@Override
 	public Country findCountryByname(String name) {
@@ -123,7 +113,7 @@ public class MySqlCountryDAO implements CountryDAO {
 	    long surfaceArea = countries.getSurfaceArea();
         String headOfState = countries.getHeadOfState();
 
-        String query = "INSERT INTO country (name, continent, surfaceArea, headOfState) VALUES('"+name+"', '"+continent+"', "+surfaceArea+",        '"+headOfState+"');";
+        String query = "INSERT INTO country (name, continent, surfaceArea, headOfState) VALUES('"+name+"', '"+continent+"', '"+surfaceArea+"','"+headOfState+"');";
 
         return db.save(query);
 	}
