@@ -81,7 +81,7 @@ public class Main{
 					System.out.println("Type Country name: ");
 					String nameIn = userInput.next();
 					System.out.println("Type Country continent: ");
-					Continent contIn = Continent.getEnum(userInput.next()); //couldn't fix this line on the input
+					Continent contIn = Continent.getEnum(userInput.next()); //this concatenation is causing the null exception on save()
 					System.out.println("Type Country surface area: ");
 					long areaIn = userInput.nextLong();
 					System.out.println("Type Country Head of State: ");
