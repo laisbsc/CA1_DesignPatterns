@@ -10,16 +10,16 @@ The Thread Safe Singleton Pattern implementation was done on the connection from
 
 The second creational design pattern chosen was the Builder Pattern. This helped with the design of the program, by implementing  encapsulation, creating and assembling the several parameters in the Country class in a separate Builder object, called CountryBuilder. This class allows the object creation to the handles by the 'builder', instead of creating the objects directly.
 
-### TO-DO ###
- > Builder pattern DEBUG;
- > CLI - save country method - allow for param. to be inserted by user.
- > CLI > validation on string characters for user input.
-
 ### Testing
 The user interaction is provided by a CLI client. The front-end allows the user to interact and test the application throughly.
 When the program runs, the user will be prompted with a series of options to type and their respective actions. Typing '0' when prompted exists the application.
     
-
 ### Submission
-- .zip file with a .txt with the link to this repo uploaded to Moodle [link to this repo];
+- .zip file with a README.md with the link to this repo uploaded to Moodle [https://github.com/laisbsc/JavaApp_DesignPatterns];
 - README.md with the justification of the chosen design patterns and a basic manual of how to interact with the CLI.
+
+### future TO-DO ###
+ > CLI - save country method - DEBUG;
+ > implement validations on user input;
+ > implement feedback changes.
+
